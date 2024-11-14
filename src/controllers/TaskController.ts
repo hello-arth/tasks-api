@@ -26,7 +26,7 @@ export class TaskController {
   }
 
   // POST /api/tasks
-  store = (req: Request, res: Response) => {
+  store: Handler = (req, res) => {
     const parsedBody = StoreRequestSchema.parse(req.body);
     const newTask = Task.create(parsedBody);
     res.status(201).json(newTask);
